@@ -18,7 +18,7 @@ public class PetService {
         String nomeArquivo = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmm")
                 .format(pet.getDataCadastro()) + "-" +
                 pet.getNomeCompleto().replace(" ", "").toUpperCase() + ".txt";
-        Path path = Paths.get("src/petsCadastrados", nomeArquivo);
+        Path path = Paths.get("src/service/petsCadastrados", nomeArquivo);
         List<String> linhas = List.of(
                 pet.getNomeCompleto(),
                 pet.getTipo().toString(),
@@ -33,7 +33,7 @@ public class PetService {
     }
 
     public List<Path> listarTodosArquivos() throws IOException {
-        return Files.list(Paths.get("src/petsCadastrados"))
+        return Files.list(Paths.get("src/service/petsCadastrados"))
                 .filter(f -> f.toString().endsWith(".txt"))
                 .toList();
     }
