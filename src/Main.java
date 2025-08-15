@@ -1,12 +1,16 @@
 package main;
 
+import model.Pet;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     private static final Scanner in = new Scanner(System.in);
+    private static final ArrayList<Pet> pets = new ArrayList<>();
     public static void main(String[] args) {
         int opcao = 0;
         do{
@@ -51,17 +55,25 @@ public class Main {
                 6. Sair""");
     }
     public static void cadastrarPet(){
-        String caminhoArquivo = "src\\domain\\resources\\formulario.txt";
+        String caminhoArquivo = "src\\data\\formulario.txt";
 
         try(BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
             String linha;
             while ((linha = br.readLine())!=null){
                 System.out.println(linha);
             }
-
+            cadastrar();
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());
         }
+
+    }
+    public static void cadastrar(){
+        boolean continuar = true;
+        while (continuar){
+           // Pet pet = new Pet();
+        }
+
     }
     public static void alterarPet(){
 
